@@ -1,0 +1,114 @@
+/**
+ * RBK STUDIO × RBK KONSTRUKSI — DESIGN TOKENS
+ * File: public/assets/css/tokens.css
+ * Palet warna dikunci oleh Owner (Section 3.1) + Token hasil ekstraksi Referensi A & B
+ */
+
+:root {
+  /* ==========================================================================
+     1. PALET WARNA TERKUNCI (SECTION 3.1)
+     ========================================================================== */
+  /* Warna Inti */
+  --color-black: #0f0e0d;
+  --color-white: #ffffff;
+  --color-orange: #dd5c3e;
+
+  /* Token Turunan Terkunci */
+  --color-orange-strong: #b44c34; /* Oren 80% + Hitam 20% (Hover & Teks oren kecil) */
+  --color-orange-soft: #fcf2f0;   /* Oren 8% + Putih 92% (Card rec, highlight, focus) */
+  --color-muted-light: #656564;   /* Hitam 64% + Putih (Teks sekunder di latar terang) */
+  --color-muted-dark: #b2b2b2;    /* Putih 68% + Hitam (Teks sekunder di latar gelap) */
+  --color-border-light: #e2e2e2;  /* Hitam 12% + Putih (Border di latar terang) */
+  --color-border-dark: #31302f;   /* Putih 14% + Hitam (Border di latar gelap) */
+  --color-surface-light: #f5f5f5; /* Hitam 4% + Putih (Section terang alternate) */
+  --color-surface-dark: #1d1c1c;  /* Putih 6% + Hitam (Card di atas latar gelap) */
+
+  /* Pemetaan Alias Kompatibilitas Referensi A & B ke Token 3.1 */
+  --ink: var(--color-black);
+  --ink-2: var(--color-black);
+  --ink-3: var(--color-border-dark);
+  --paper: var(--color-surface-light);
+  --paper-2: var(--color-surface-light);
+  --card: var(--color-white);
+  --line: var(--color-border-light);
+  --line-dk: var(--color-border-dark);
+  --fg: var(--color-black);
+  --muted: var(--color-muted-light);
+  --muted-dk: var(--color-muted-dark);
+  --orange: var(--color-orange);
+  --orange-dk: var(--color-orange-strong);
+  --orange-soft: var(--color-orange-soft);
+  --ok: var(--color-black);
+
+  /* ==========================================================================
+     2. TIPOGRAFI & FONT STACK
+     ========================================================================== */
+  --font-heading: "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Plus Jakarta Sans", system-ui, -apple-system, monospace;
+
+  /* Alias Kompatibilitas Referensi A & B */
+  --f-display: var(--font-heading);
+  --f-body: var(--font-body);
+  --f-mono: var(--font-mono);
+
+  /* Skala Ukuran Font */
+  --fs-h1: clamp(32px, 5vw, 54px);
+  --fs-h2: clamp(24px, 3.8vw, 38px);
+  --fs-h3: clamp(18px, 2.5vw, 24px);
+  --fs-h4: 18px;
+  --fs-body-lg: 17px;
+  --fs-body: 15px;
+  --fs-body-sm: 13.5px;
+  --fs-eyebrow: 12px;
+  --fs-badge: 11.5px;
+
+  /* ==========================================================================
+     3. LAYOUT GRID, SPACING & CONTAINERS
+     ========================================================================== */
+  --container-max: 1180px;
+  --container-narrow: 860px;
+  --gut: clamp(16px, 4vw, 44px);
+  --max: var(--container-max);
+
+  /* Skala Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ==========================================================================
+     4. BORDER RADII (SKALA KELENGKUNGAN)
+     ========================================================================== */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px; /* Default --r dari referensi A & B */
+  --radius-2xl: 18px;
+  --radius-full: 999px;
+  --r: var(--radius-xl);
+
+  /* ==========================================================================
+     5. BOX SHADOWS & ELEVATION
+     ========================================================================== */
+  --shadow-sm: 0 2px 8px rgba(15, 14, 13, 0.04);
+  --shadow-md: 0 4px 16px rgba(15, 14, 13, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 14, 13, 0.12);
+  --shadow-orange: 0 6px 20px rgba(221, 92, 62, 0.25);
+
+  /* ==========================================================================
+     6. TRANSIEN, ANIMASI & DURATION
+     ========================================================================== */
+  --duration-fast: 0.15s;
+  --duration-normal: 0.25s;
+  --duration-slow: 0.4s;
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

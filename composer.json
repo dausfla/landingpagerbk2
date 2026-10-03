@@ -1,0 +1,19 @@
+{
+  "name": "rbk/landing-dashboard",
+  "description": "Landing Page RBK Studio x RBK Konstruksi & Dashboard Admin CRUD",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    },
+    "files": [
+      "app/Core/Helpers.php"
+    ]
+  },
+  "require": {
+    "php": ">=8.0",
+    "vlucas/phpdotenv": "^5.5",
+    "phpmailer/phpmailer": "^6.8"
+  }
+}

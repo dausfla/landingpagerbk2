@@ -1,0 +1,23 @@
+# Environment
+.env
+
+# Dependencies
+vendor/
+
+# macOS / OS metadata
+.DS_Store
+Thumbs.db
+
+# Storage / Cache / Logs
+storage/cache/*
+!storage/cache/.gitkeep
+storage/logs/*
+!storage/logs/.gitkeep
+storage/uploads/*
+!storage/uploads/.gitkeep
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
