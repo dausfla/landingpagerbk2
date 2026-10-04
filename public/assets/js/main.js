@@ -16,8 +16,24 @@ function initMobileMenu() {
   const toggle = document.querySelector('.hamburger-toggle');
   const menu = document.querySelector('.navbar-menu');
   if (toggle && menu) {
-    toggle.addEventListener('click', () => {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       menu.classList.toggle('active');
+    });
+
+    // Close mobile menu automatically when any link is clicked
+    const links = menu.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+      });
+    });
+
+    // Close menu when tapping outside navbar
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('active');
+      }
     });
   }
 }

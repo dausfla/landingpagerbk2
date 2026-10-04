@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   
   <title><?= e($settings['meta_title'] ?? 'Jasa Arsitek & Kontraktor Rumah Bogor | RBK Studio & RBK Konstruksi') ?></title>
   <meta name="description" content="<?= e($settings['meta_description'] ?? '') ?>">
@@ -723,7 +723,7 @@
 
   <!-- S21. FOOTER -->
   <footer style="background: var(--color-black); color: var(--color-white); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--color-border-dark);">
-    <div class="container" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-8);">
+    <div class="container footer-grid">
       <div>
         <img src="/assets/img/logo-rbk-white.png" alt="Rancang Bangun Kreasi" style="height: 52px; width: auto; margin-bottom: 14px; display: block;">
         <p style="font-size: 13.5px; color: var(--color-muted-dark); max-width: 400px; margin-bottom: 16px;">
