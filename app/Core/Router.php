@@ -6,17 +6,33 @@ class Router
 {
     private array $routes = [];
 
-    public function get(string $path, array|callable $handler, array $middlewares = []): void
+    /**
+     * @param string $path
+     * @param array|callable $handler
+     * @param array $middlewares
+     */
+    public function get(string $path, $handler, array $middlewares = []): void
     {
         $this->addRoute('GET', $path, $handler, $middlewares);
     }
 
-    public function post(string $path, array|callable $handler, array $middlewares = []): void
+    /**
+     * @param string $path
+     * @param array|callable $handler
+     * @param array $middlewares
+     */
+    public function post(string $path, $handler, array $middlewares = []): void
     {
         $this->addRoute('POST', $path, $handler, $middlewares);
     }
 
-    private function addRoute(string $method, string $path, array|callable $handler, array $middlewares): void
+    /**
+     * @param string $method
+     * @param string $path
+     * @param array|callable $handler
+     * @param array $middlewares
+     */
+    private function addRoute(string $method, string $path, $handler, array $middlewares): void
     {
         $pattern = preg_replace('/\{([a-zA-Z0-9_]+)\}/', '(?P<$1>[^/]+)', $path);
         $pattern = '#^' . $pattern . '$#';
