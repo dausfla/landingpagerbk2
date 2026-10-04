@@ -6,6 +6,7 @@
   
   <title><?= e($settings['meta_title'] ?? 'Jasa Arsitek & Kontraktor Rumah Bogor | RBK Studio & RBK Konstruksi') ?></title>
   <meta name="description" content="<?= e($settings['meta_description'] ?? '') ?>">
+  <meta name="google-site-verification" content="google7661fb17470ac136">
   <link rel="canonical" href="<?= e(env('APP_URL', 'http://localhost:8000')) ?>">
   
   <!-- Open Graph -->

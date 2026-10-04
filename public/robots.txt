@@ -3,4 +3,4 @@ Disallow: /admin
 Disallow: /admin/*
 Disallow: /api/*
 
-Sitemap: http://localhost:8000/sitemap.xml
+Sitemap: https://rbkstudio.id/sitemap.xml
