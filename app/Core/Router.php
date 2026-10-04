@@ -66,12 +66,12 @@ class Router
                 }
 
                 $handler = $route['handler'];
-                if (is_callable($handler)) {
-                    $handler($request, ...array_values($params));
-                } else if (is_array($handler)) {
+                if (is_array($handler)) {
                     [$controllerClass, $methodName] = $handler;
                     $controller = new $controllerClass();
                     $controller->$methodName($request, ...array_values($params));
+                } else if (is_callable($handler)) {
+                    $handler($request, ...array_values($params));
                 }
                 return;
             }
