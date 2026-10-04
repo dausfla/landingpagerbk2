@@ -33,15 +33,15 @@ $request = new Request();
 $router = new Router();
 
 // PUBLIC ROUTES
-$router->get('/', ['App\Controllers\Public\HomeController', 'index']);
-$router->get('/kebijakan-privasi', ['App\Controllers\Public\PageController', 'kebijakanPrivasi']);
-$router->get('/terima-kasih', ['App\Controllers\Public\LeadController', 'terimaKasih']);
-$router->get('/sitemap.xml', ['App\Controllers\Public\PageController', 'sitemap']);
+$router->get('/', ['App\Controllers\Site\HomeController', 'index']);
+$router->get('/kebijakan-privasi', ['App\Controllers\Site\PageController', 'kebijakanPrivasi']);
+$router->get('/terima-kasih', ['App\Controllers\Site\LeadController', 'terimaKasih']);
+$router->get('/sitemap.xml', ['App\Controllers\Site\PageController', 'sitemap']);
 
 // PUBLIC API ROUTES (LEADS & TRACKING)
-$router->post('/api/lead/step1', ['App\Controllers\Public\LeadController', 'step1'], [RateLimitMiddleware::class, CsrfMiddleware::class]);
-$router->post('/api/lead/step2', ['App\Controllers\Public\LeadController', 'step2'], [CsrfMiddleware::class]);
-$router->post('/api/lead/wa-click', ['App\Controllers\Public\LeadController', 'waClick']);
+$router->post('/api/lead/step1', ['App\Controllers\Site\LeadController', 'step1'], [RateLimitMiddleware::class, CsrfMiddleware::class]);
+$router->post('/api/lead/step2', ['App\Controllers\Site\LeadController', 'step2'], [CsrfMiddleware::class]);
+$router->post('/api/lead/wa-click', ['App\Controllers\Site\LeadController', 'waClick']);
 
 // STYLEGUIDE (Protected by AuthMiddleware in Production)
 $router->get('/styleguide', function(Request $req) {
