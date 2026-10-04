@@ -200,6 +200,8 @@ CREATE TABLE `portfolios` (
   `year` VARCHAR(20) NULL,
   `status` VARCHAR(50) NOT NULL DEFAULT 'selesai',
   `short_desc` TEXT NULL,
+  `before_image` VARCHAR(255) NULL,
+  `after_image` VARCHAR(255) NULL,
   `cover_media_id` BIGINT UNSIGNED NULL,
   `before_media_id` BIGINT UNSIGNED NULL,
   `after_media_id` BIGINT UNSIGNED NULL,
