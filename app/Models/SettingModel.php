@@ -10,7 +10,7 @@ class SettingModel
     /**
      * Get value of single setting key
      */
-    public static function get(string $key, mixed $default = null): mixed
+    public static function get(string $key, $default = null)
     {
         $res = DB::fetchOne("SELECT value FROM settings WHERE `key` = ?", [$key]);
         return $res['value'] ?? $default;

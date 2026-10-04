@@ -58,17 +58,17 @@ class Request
         return ($this->server['HTTP_X_REQUESTED_WITH'] ?? '') === 'XMLHttpRequest' || $this->isJson();
     }
 
-    public function get(string $key, mixed $default = null): mixed
+    public function get(string $key, $default = null)
     {
         return $this->get[$key] ?? $default;
     }
 
-    public function post(string $key, mixed $default = null): mixed
+    public function post(string $key, $default = null)
     {
         return $this->post[$key] ?? $default;
     }
 
-    public function input(string $key, mixed $default = null): mixed
+    public function input(string $key, $default = null)
     {
         return $this->post[$key] ?? $this->get[$key] ?? $default;
     }
