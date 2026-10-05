@@ -185,9 +185,67 @@ class PortfolioController
         $targetPath = $targetDir . $newFilename;
 
         if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+            $this->optimizeImage($targetPath, $ext);
             return '/uploads/portfolios/' . $newFilename;
         }
 
         return null;
+    }
+
+    private function optimizeImage(string $filePath, string $ext): void
+    {
+        if (!function_exists('imagecreatefromstring')) {
+            return;
+        }
+
+        $info = @getimagesize($filePath);
+        if (!$info) return;
+
+        [$width, $height] = $info;
+        $maxDimension = 1920; // Max width/height in pixels
+
+        // If dimensions are within bounds and filesize is small (< 500KB), keep as is
+        if ($width <= $maxDimension && $height <= $maxDimension && filesize($filePath) < 500000) {
+            return;
+        }
+
+        $srcImg = @imagecreatefromstring(file_get_contents($filePath));
+        if (!$srcImg) return;
+
+        // Calculate new dimensions preserving aspect ratio
+        if ($width > $maxDimension || $height > $maxDimension) {
+            if ($width >= $height) {
+                $newWidth = $maxDimension;
+                $newHeight = (int)round(($height / $width) * $maxDimension);
+            } else {
+                $newHeight = $maxDimension;
+                $newWidth = (int)round(($width / $height) * $maxDimension);
+            }
+
+            $dstImg = imagecreatetruecolor($newWidth, $newHeight);
+            
+            // Preserve PNG transparency
+            if (in_array($ext, ['png', 'webp', 'gif'])) {
+                imagealphablending($dstImg, false);
+                imagesavealpha($dstImg, true);
+                $transparent = imagecolorallocatealpha($dstImg, 255, 255, 255, 127);
+                imagefilledrectangle($dstImg, 0, 0, $newWidth, $newHeight, $transparent);
+            }
+
+            imagecopyresampled($dstImg, $srcImg, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+            imagedestroy($srcImg);
+            $srcImg = $dstImg;
+        }
+
+        // Save compressed image back to disk
+        if ($ext === 'png') {
+            imagepng($srcImg, $filePath, 6);
+        } else if (in_array($ext, ['jpg', 'jpeg'])) {
+            imagejpeg($srcImg, $filePath, 82);
+        } else if ($ext === 'webp' && function_exists('imagewebp')) {
+            imagewebp($srcImg, $filePath, 82);
+        }
+
+        imagedestroy($srcImg);
     }
 }
