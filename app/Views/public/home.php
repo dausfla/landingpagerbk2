@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Preload Hero LCP Image -->
-  <link rel="preload" as="image" href="/assets/img/la-bella.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/img/la-bella.jpg" fetchpriority="high">
 
   <link rel="stylesheet" href="<?= asset('assets/css/style.css') ?>">
   
@@ -94,8 +94,8 @@
 
         <figure class="hero-visual reveal">
           <picture>
-            <source srcset="/assets/img/la-bella.webp" type="image/webp">
-            <img src="/assets/img/la-bella.webp" alt="La Bella Office & Warehouse karya RBK" width="800" height="500" fetchpriority="high">
+            <source srcset="/assets/img/la-bella.jpg" type="image/jpeg">
+            <img src="/assets/img/la-bella.jpg" alt="La Bella Office & Warehouse karya RBK" width="800" height="500" fetchpriority="high">
           </picture>
           <figcaption>Proyek Komersial: La Bella Office & Warehouse, Bogor (Design & Build oleh RBK)</figcaption>
         </figure>
