@@ -305,7 +305,7 @@
           </div>
 
           <div>
-            <img src="/assets/img/arsya.webp" alt="Desain rumah tropis Bogor" style="width: 100%; border-radius: var(--radius-xl); box-shadow: var(--shadow-md);" loading="lazy" width="600" height="400">
+            <img src="/assets/img/arsya.jpg" alt="Arsya House Project - Desain rumah tropis Bogor karya RBK" style="width: 100%; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); object-fit: cover;" loading="lazy" width="600" height="400">
           </div>
         </div>
       </div>
