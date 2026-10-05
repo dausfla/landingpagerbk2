@@ -964,11 +964,65 @@ a {
   transform: scale(1.14);
 }
 
-/* Footer Grid */
+/* Footer & Contact System */
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: var(--space-8);
+}
+
+.footer-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--color-muted-dark);
+}
+
+.footer-info-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-muted-dark);
+  text-decoration: none;
+  transition: color var(--duration-fast);
+}
+
+.footer-info-item:hover {
+  color: var(--color-orange);
+}
+
+.footer-info-item svg {
+  flex-shrink: 0;
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-white);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.social-icon-btn:hover {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-black);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(221, 92, 62, 0.35);
 }
 
 /* Touch & iOS Tap Optimizations */

@@ -728,39 +728,65 @@
     <div class="container footer-grid">
       <div>
         <img src="/assets/img/logo-rbk-white.png" alt="Rancang Bangun Kreasi" style="height: 52px; width: auto; margin-bottom: 14px; display: block;">
-        <p style="font-size: 13.5px; color: var(--color-muted-dark); max-width: 400px; margin-bottom: 16px;">
+        <p style="font-size: 13.5px; color: var(--color-muted-dark); max-width: 400px; margin-bottom: 18px; line-height: 1.6;">
           <?= e($settings['company_pt_name'] ?? 'PT Rancang Bangun Sedaya') ?> — Jasa Arsitek (RBK Studio) dan Kontraktor Pembangunan (RBK Konstruksi) terpercaya di Bogor & Jabodetabek.
         </p>
-        <p style="font-size: 13px; color: var(--color-muted-dark);">
-          📍 <?= e($settings['office_address'] ?? 'Pasirmulya, Kota Bogor 16118') ?><br>
-          🕒 <?= e($settings['office_hours'] ?? 'Senin–Sabtu, 08.00–17.00 WIB') ?>
-        </p>
+        <div class="footer-info-list">
+          <a href="https://share.google/U2HIjL6kC37V8KlSA" target="_blank" rel="noopener" class="footer-info-item" aria-label="Lokasi Kantor RBK di Google Maps">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="text-decoration: underline; text-underline-offset: 3px;"><?= e($settings['office_address'] ?? 'Pasirmulya, Kota Bogor 16118') ?></span>
+          </a>
+          <div class="footer-info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span><?= e($settings['office_hours'] ?? 'Senin–Sabtu, 08.00–17.00 WIB') ?></span>
+          </div>
+        </div>
       </div>
 
       <div>
         <h4 style="font-size: 16px; color: var(--color-white); margin-bottom: 16px;">Tautan Cepat</h4>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--color-muted-dark);">
-          <li><a href="#layanan">Layanan Kami</a></li>
-          <li><a href="#portofolio">Portofolio Proyek</a></li>
-          <li><a href="#harga">Paket & Harga</a></li>
-          <li><a href="#kalkulator">Kalkulator Estimasi</a></li>
-          <li><a href="/kebijakan-privasi">Kebijakan Privasi</a></li>
-          <li><a href="/admin/login" style="color: var(--color-orange); font-weight: 600;">🔐 Login Admin CMS</a></li>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--color-muted-dark);">
+          <li><a href="#layanan" style="transition: color 0.2s;">Layanan Kami</a></li>
+          <li><a href="#portofolio" style="transition: color 0.2s;">Portofolio Proyek</a></li>
+          <li><a href="#harga" style="transition: color 0.2s;">Paket & Harga</a></li>
+          <li><a href="#kalkulator" style="transition: color 0.2s;">Kalkulator Estimasi</a></li>
+          <li><a href="/kebijakan-privasi" style="transition: color 0.2s;">Kebijakan Privasi</a></li>
+          <li><a href="/admin/login" style="color: var(--color-orange); font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">🔐 Login Admin CMS</a></li>
         </ul>
       </div>
 
       <div>
         <h4 style="font-size: 16px; color: var(--color-white); margin-bottom: 16px;">Kontak & Medsos</h4>
-        <p style="font-size: 14px; color: var(--color-muted-dark); line-height: 1.8;">
-          📞 <?= e($settings['phone_number'] ?? '+62 812-3459-3742') ?><br>
-          ✉️ <?= e($settings['contact_email'] ?? 'rancangbangunkreasi.official@gmail.com') ?>
-        </p>
+        <div class="footer-info-list" style="margin-bottom: 20px;">
+          <a href="https://wa.me/6281234593742" target="_blank" rel="noopener" class="footer-info-item" aria-label="Telepon / WhatsApp RBK">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span><?= e($settings['phone_number'] ?? '+62 812-3459-3742') ?></span>
+          </a>
+          <a href="mailto:rancangbangunkreasi.official@gmail.com" class="footer-info-item" aria-label="Email Resmi RBK">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span><?= e($settings['contact_email'] ?? 'rancangbangunkreasi.official@gmail.com') ?></span>
+          </a>
+        </div>
+
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/rbkofficial.id/" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Instagram Official RBK">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@rancangbangunkreasi_id" target="_blank" rel="noopener" class="social-icon-btn" aria-label="YouTube Channel RBK">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@rbk.official" target="_blank" rel="noopener" class="social-icon-btn" aria-label="TikTok Official RBK">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-2.85V7.6a6.34 6.34 0 0 0-3.51.85 6.34 6.34 0 0 0-2.85 4.86 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.37a8.16 8.16 0 0 0 4.79 1.57V7.5a4.85 4.85 0 0 1-1-.81z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/KonstruksiRBK/" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Facebook Page RBK">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="container" style="margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--color-border-dark); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--color-muted-dark);">
+    <div class="container" style="margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--color-border-dark); text-align: center; font-size: 13px; color: var(--color-muted-dark);">
       <div>© <?= date('Y') ?> <?= e($settings['company_pt_name'] ?? 'PT Rancang Bangun Sedaya') ?>. All rights reserved.</div>
-      <div><a href="/admin/login" style="color: var(--color-muted-dark); text-decoration: underline;">Dashboard CMS Admin</a></div>
     </div>
   </footer>
 
