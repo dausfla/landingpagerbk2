@@ -347,8 +347,8 @@
               <!-- Interactive Before/After Slider inside Each Card -->
               <div class="ba-container card-ba-slider" style="--pos: 50%;">
                 <?php
-                  $afterSrc = !empty($p['after_image']) ? e($p['after_image']) : '/assets/img/' . e($p['slug']) . '.webp';
-                  $beforeSrc = !empty($p['before_image']) ? e($p['before_image']) : '/assets/img/' . e($p['slug']) . '-before.webp';
+                  $afterSrc = !empty($p['after_image']) ? e($p['after_image']) : (file_exists(__DIR__ . '/../../../public/assets/img/' . $p['slug'] . '.jpg') ? '/assets/img/' . e($p['slug']) . '.jpg' : '/assets/img/' . e($p['slug']) . '.webp');
+                  $beforeSrc = !empty($p['before_image']) ? e($p['before_image']) : (file_exists(__DIR__ . '/../../../public/assets/img/' . $p['slug'] . '-before.jpg') ? '/assets/img/' . e($p['slug']) . '-before.jpg' : '/assets/img/' . e($p['slug']) . '-before.webp');
                 ?>
                 <img src="<?= $afterSrc ?>" alt="Sesudah <?= e($p['title']) ?>" class="ba-img ba-after" loading="lazy" width="400" height="250">
                 <img src="<?= $beforeSrc ?>" alt="Sebelum <?= e($p['title']) ?>" class="ba-img ba-before" loading="lazy" width="400" height="250">
