@@ -321,16 +321,17 @@
           <h2 style="font-size: var(--fs-h2);"><?= $sections['s8_portfolio']['title'] ?></h2>
         </div>
 
-        <!-- Before/After Slider Sample -->
+        <!-- Before/After Slider Featured Project: H House -->
         <div class="ba-container reveal" style="--pos: 50%;">
-          <img src="/assets/img/rumah-a-after.webp" alt="Sesudah Renovasi" class="ba-img ba-after" loading="lazy" width="960" height="600">
-          <img src="/assets/img/rumah-a-before.webp" alt="Sebelum Renovasi" class="ba-img ba-before" loading="lazy" width="960" height="600">
+          <img src="/assets/img/h-house.jpg" alt="Hasil Akhir H House Pasirmulya Bogor" class="ba-img ba-after" loading="lazy" width="960" height="600">
+          <img src="/assets/img/h-house-before.jpg" alt="Proses Konstruksi H House Pasirmulya Bogor" class="ba-img ba-before" loading="lazy" width="960" height="600">
           <div class="ba-divider"></div>
           <div class="ba-handle">↔</div>
-          <span class="ba-label ba-label-before">Sebelum</span>
-          <span class="ba-label ba-label-after">Sesudah</span>
-          <input type="range" min="0" max="100" value="50" class="ba-slider-input" aria-label="Geser perbandingan sebelum dan sesudah">
+          <span class="ba-label ba-label-before">Sebelum (Proses)</span>
+          <span class="ba-label ba-label-after">Sesudah (Hasil Akhir)</span>
+          <input type="range" min="0" max="100" value="50" class="ba-slider-input" aria-label="Geser perbandingan sebelum dan sesudah H House Pasirmulya, Bogor">
         </div>
+        <figcaption style="text-align: center; margin-top: -24px; margin-bottom: 32px; font-size: 14.5px; font-weight: 700; color: var(--color-black);">Proyek: H House — Pasirmulya, Bogor (Design & Build oleh RBK)</figcaption>
 
         <!-- Category Filter Chips -->
         <div class="chip-group reveal" style="justify-content: center; margin-bottom: var(--space-8);">

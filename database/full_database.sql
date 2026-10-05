@@ -549,17 +549,18 @@ INSERT INTO `portfolio_categories` (`id`, `name`, `slug`, `sort_order`) VALUES
 (5, 'Renovasi', 'renovasi', 5);
 
 -- 7. PORTFOLIOS (Section 11.3)
-INSERT INTO `portfolios` (`title`, `slug`, `category_id`, `service_type`, `location`, `year`, `status`, `short_desc`, `is_featured`, `sort_order`, `is_published`) VALUES
-('RenoVancy Rumah Mr. Putra', 'renovancy-rumah-mr-putra', 5, 'renovasi', 'Bogor', '2023', 'selesai', 'Transformasi total rumah tinggal menjadi hunian tropis modern.', 1, 1, 1),
-('RenoVancy Rumah Mrs. Sela', 'renovancy-rumah-mrs-sela', 5, 'renovasi', 'Bogor', '2023', 'selesai', 'Penambahan area rooftop dan renovasi fasad lantai 2.', 1, 2, 1),
-('Ruko Cigiringsing', 'ruko-cigiringsing', 3, 'design_build', 'Bogor', '2022', 'selesai', 'Pembangunan ruko commercial dari lahan kosong hingga serah terima kunci.', 1, 3, 1),
-('Casa Nawasena Cluster Kost', 'casa-nawasena-cluster-kost', 2, 'design_build', 'Dramaga, Bogor', '2023', 'selesai', 'Desain dan pembangunan kawasan kost modern produktif.', 1, 4, 1),
-('Chillax Kost Dramaga', 'chillax-kost-dramaga', 2, 'design_build', 'Dramaga, Bogor', '2023', 'selesai', 'Kost eksklusif dekat kampus dengan efisiensi tata ruang tinggi.', 1, 5, 1),
-('AB House', 'ab-house', 1, 'studio', 'Bogor', '2023', 'selesai', 'Perencanaan desain rumah tinggal tropis 2 lantai.', 1, 6, 1),
-('Arsya House', 'arsya-house', 1, 'studio', 'Bogor', '2022', 'selesai', 'Desain rumah 1 lantai gaya modern minimalis.', 0, 7, 1),
-('AR\' House', 'ar-house', 1, 'studio', 'Bogor', '2022', 'selesai', 'Perencanaan hunian keluarga berkonsep terbukanya sirkulasi udara.', 0, 8, 1),
-('La Bella Office & Warehouse', 'la-bella-office-warehouse', 4, 'design_build', 'Bogor', '2023', 'selesai', 'Pembangunan kompleks kantor dan pergudangan terpadu.', 1, 9, 1),
-('Sinergy Office & Warehouse', 'sinergy-office-warehouse', 4, 'design_build', 'Bogor', '2023', 'selesai', 'Desain dan pelaksanaan konstruksi fasilitas kantor serta pergudangan.', 0, 10, 1);
+INSERT INTO `portfolios` (`title`, `slug`, `category_id`, `service_type`, `location`, `year`, `status`, `short_desc`, `before_image`, `after_image`, `is_featured`, `sort_order`, `is_published`) VALUES
+('H House', 'h-house', 1, 'design_build', 'Pasirmulya, Bogor', '2023', 'selesai', 'Pembangunan hunian tropis modern 3 lantai di Pasirmulya, Bogor.', '/assets/img/h-house-before.jpg', '/assets/img/h-house.jpg', 1, 1, 1),
+('RenoVancy Rumah Mr. Putra', 'renovancy-rumah-mr-putra', 5, 'renovasi', 'Bogor', '2023', 'selesai', 'Transformasi total rumah tinggal menjadi hunian tropis modern.', '/assets/img/renovancy-rumah-mr-putra-before.webp', '/assets/img/renovancy-rumah-mr-putra.webp', 1, 2, 1),
+('RenoVancy Rumah Mrs. Sela', 'renovancy-rumah-mrs-sela', 5, 'renovasi', 'Bogor', '2023', 'selesai', 'Penambahan area rooftop dan renovasi fasad lantai 2.', '/assets/img/renovancy-rumah-mrs-sela-before.webp', '/assets/img/renovancy-rumah-mrs-sela.webp', 1, 3, 1),
+('Ruko Cigiringsing', 'ruko-cigiringsing', 3, 'design_build', 'Bogor', '2022', 'selesai', 'Pembangunan ruko commercial dari lahan kosong hingga serah terima kunci.', '/assets/img/ruko-cigiringsing-before.webp', '/assets/img/ruko-cigiringsing.webp', 1, 4, 1),
+('Casa Nawasena Cluster Kost', 'casa-nawasena-cluster-kost', 2, 'design_build', 'Dramaga, Bogor', '2023', 'selesai', 'Desain dan pembangunan kawasan kost modern produktif.', '/assets/img/casa-nawasena-cluster-kost-before.webp', '/assets/img/casa-nawasena-cluster-kost.webp', 1, 5, 1),
+('Chillax Kost Dramaga', 'chillax-kost-dramaga', 2, 'design_build', 'Dramaga, Bogor', '2023', 'selesai', 'Kost eksklusif dekat kampus dengan efisiensi tata ruang tinggi.', '/assets/img/chillax-kost-dramaga-before.webp', '/assets/img/chillax-kost-dramaga.webp', 1, 6, 1),
+('AB House', 'ab-house', 1, 'studio', 'Bogor', '2023', 'selesai', 'Perencanaan desain rumah tinggal tropis 2 lantai.', '/assets/img/ab-house-before.webp', '/assets/img/ab-house.webp', 1, 7, 1),
+('Arsya House', 'arsya-house', 1, 'studio', 'Bogor', '2022', 'selesai', 'Desain rumah 1 lantai gaya modern minimalis.', '/assets/img/arsya-house-before.webp', '/assets/img/arsya-house.webp', 0, 8, 1),
+('AR\' House', 'ar-house', 1, 'studio', 'Bogor', '2022', 'selesai', 'Perencanaan hunian keluarga berkonsep terbukanya sirkulasi udara.', '/assets/img/ar-house-before.webp', '/assets/img/ar-house.webp', 0, 9, 1),
+('La Bella Office & Warehouse', 'la-bella-office-warehouse', 4, 'design_build', 'Bogor', '2023', 'selesai', 'Pembangunan kompleks kantor dan pergudangan terpadu.', '/assets/img/la-bella-office-warehouse-before.jpg', '/assets/img/la-bella-office-warehouse.jpg', 1, 10, 1),
+('Sinergy Office & Warehouse', 'sinergy-office-warehouse', 4, 'design_build', 'Bogor', '2023', 'selesai', 'Desain dan pelaksanaan konstruksi fasilitas kantor serta pergudangan.', '/assets/img/sinergy-office-warehouse-before.webp', '/assets/img/sinergy-office-warehouse.webp', 0, 11, 1);
 
 -- 8. STATS (Section 11.4)
 INSERT INTO `stats` (`value`, `label`, `is_verified`, `source_note`, `sort_order`, `is_published`) VALUES
