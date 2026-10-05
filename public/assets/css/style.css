@@ -712,6 +712,10 @@ a {
   pointer-events: none;
 }
 
+.portfolio-card.is-hidden {
+  display: none !important;
+}
+
 /* S9. Keunggulan Grid */
 .advantages-grid {
   display: grid;
