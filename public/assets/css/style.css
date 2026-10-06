@@ -614,7 +614,24 @@ a {
   right: 16px;
 }
 
+/* Tropical Grid (Section S7) */
+.tropical-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
 /* Category Filter Chips */
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--space-8);
+}
+
 .portfolio-chip {
   display: inline-flex;
   align-items: center;
@@ -1127,6 +1144,36 @@ button, a, select, input, summary, .portfolio-chip {
   .hero-chip {
     padding: 8px 14px;
     font-size: 13px;
+  }
+
+  .tropical-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-6) !important;
+  }
+
+  .chip-group {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 6px 16px 14px 16px !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    margin-bottom: var(--space-6) !important;
+    gap: 10px !important;
+    scrollbar-width: none;
+  }
+
+  .chip-group::-webkit-scrollbar {
+    display: none;
+  }
+
+  .portfolio-chip {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    padding: 10px 18px !important;
+    font-size: 13.5px !important;
   }
 
   .portfolio-grid {

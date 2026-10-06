@@ -292,7 +292,7 @@
   <?php if (isset($sections['s7_tropical_bogor'])): ?>
     <section class="section alt">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center;" class="reveal">
+        <div class="tropical-grid reveal">
           <div>
             <span class="eyebrow"><?= e($sections['s7_tropical_bogor']['eyebrow']) ?></span>
             <h2 style="font-size: var(--fs-h2); margin-bottom: 16px;"><?= $sections['s7_tropical_bogor']['title'] ?></h2>
@@ -337,7 +337,7 @@
         <figcaption style="text-align: center; margin-top: -24px; margin-bottom: 32px; font-size: 14.5px; font-weight: 700; color: var(--color-black);">Proyek: H House — Pasirmulya, Bogor (Design & Build oleh RBK)</figcaption>
 
         <!-- Category Filter Chips -->
-        <div class="chip-group reveal" style="justify-content: center; margin-bottom: var(--space-8);">
+        <div class="chip-group reveal">
           <button class="chip portfolio-chip active" data-category="all">Semua Proyek</button>
           <?php foreach ($categories as $cat): ?>
             <button class="chip portfolio-chip" data-category="<?= e($cat['slug']) ?>"><?= e($cat['name']) ?></button>
