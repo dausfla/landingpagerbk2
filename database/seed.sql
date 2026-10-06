@@ -32,7 +32,7 @@ INSERT INTO `settings` (`key`, `value`, `group`) VALUES
 ('office_address', 'Pasirmulya, Kota Bogor 16118', 'contact'),
 ('office_hours', 'Senin–Sabtu, 08.00–17.00 WIB', 'contact'),
 ('service_areas', 'Jakarta, Bogor, Depok, Tangerang, Bekasi (Jabodetabek)', 'contact'),
-('meta_title', 'Jasa Arsitek & Kontraktor Rumah Bogor | RBK Studio & RBK Konstruksi', 'seo'),
+('meta_title', 'Jasa Desain Arsitek & Kontraktor Rumah Bogor, Jasa Arsitek Jabodetabek | RBK Studio', 'seo'),
 ('meta_description', 'Jasa arsitek dan kontraktor rumah di Bogor & Jabodetabek. Desain mulai Rp60.000/m², bangun mulai Rp4.000.000/m². Konsultasi & survei gratis.', 'seo'),
 ('wa_message_template', 'Halo RBK, saya {nama}. Kode: {kode}. Kebutuhan: {kebutuhan}. Lokasi: {lokasi}. Luas tanah: {luas_tanah}. Rencana: {lantai} lantai. Budget: {budget}. Paket: {paket}.', 'whatsapp'),
 ('gtm_id', '', 'tracking'),

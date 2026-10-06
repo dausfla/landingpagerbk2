@@ -4,19 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   
-  <title><?= e($settings['meta_title'] ?? 'Jasa Arsitek & Kontraktor Rumah Bogor | RBK Studio & RBK Konstruksi') ?></title>
-  <meta name="description" content="<?= e($settings['meta_description'] ?? '') ?>">
+  <title><?= e(!empty($settings['meta_title']) ? $settings['meta_title'] : 'Jasa Desain Arsitek & Kontraktor Rumah Bogor, Jasa Arsitek Jabodetabek | RBK Studio') ?></title>
+  <meta name="description" content="<?= e(!empty($settings['meta_description']) ? $settings['meta_description'] : 'Jasa arsitek dan kontraktor rumah di Bogor & Jabodetabek. Desain mulai Rp60.000/m², bangun mulai Rp4.000.000/m². Konsultasi & survei gratis.') ?>">
   <meta name="google-site-verification" content="google7661fb17470ac136">
-  <!-- Favicon / Tab Title Icon -->
-  <link rel="icon" type="image/png" href="/favicon.png">
+  
+  <!-- Favicon / Google Search Engine Icon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="<?= e($settings['meta_title'] ?? '') ?>">
+  <meta property="og:title" content="<?= e(!empty($settings['meta_title']) ? $settings['meta_title'] : 'Jasa Desain Arsitek & Kontraktor Rumah Bogor, Jasa Arsitek Jabodetabek | RBK Studio') ?>">
   <meta property="og:description" content="<?= e($settings['meta_description'] ?? '') ?>">
+  <meta property="og:image" content="https://rbkstudio.id/favicon.png">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="<?= e(env('APP_URL', 'http://localhost:8000')) ?>">
+  <meta property="og:url" content="<?= e(env('APP_URL', 'https://rbkstudio.id')) ?>">
 
   <!-- Preconnect & Load Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

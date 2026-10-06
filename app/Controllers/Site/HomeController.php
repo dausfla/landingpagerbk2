@@ -32,6 +32,10 @@ class HomeController
 
         // 2. Load System Settings & Pricing
         $settings = SettingModel::getAll();
+        if (empty($settings['meta_title']) || $settings['meta_title'] === 'Jasa Arsitek & Kontraktor Rumah Bogor | RBK Studio & RBK Konstruksi') {
+            $settings['meta_title'] = 'Jasa Desain Arsitek & Kontraktor Rumah Bogor, Jasa Arsitek Jabodetabek | RBK Studio';
+        }
+
         $pricingDataJson = json_encode(PricingService::getPricingJsonData(), JSON_UNESCAPED_UNICODE);
 
         // 3. Load Sections
