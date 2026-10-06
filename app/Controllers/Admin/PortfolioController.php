@@ -48,10 +48,8 @@ class PortfolioController
     public function store(Request $request): void
     {
         $title = trim($request->post('title', ''));
-        $slug = trim($request->post('slug', ''));
-        if (empty($slug)) {
-            $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title)));
-        }
+        $rawSlug = trim($request->post('slug', ''));
+        $slug = $this->makeUniqueSlug($title, $rawSlug);
 
         $categoryId = (int)$request->post('category_id');
         $location = trim($request->post('location', 'Bogor'));
@@ -70,14 +68,25 @@ class PortfolioController
         $sql = "INSERT INTO portfolios (title, slug, category_id, service_type, location, year, status, short_desc, before_image, after_image, is_featured, sort_order, is_published, created_at)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
-        $pId = DB::insert($sql, [
-            $title, $slug, $categoryId, $serviceType, $location, $year, $status, $shortDesc, $beforeImage, $afterImage, $isFeatured, $sortOrder, $isPublished
-        ]);
+        try {
+            $pId = DB::insert($sql, [
+                $title, $slug, $categoryId, $serviceType, $location, $year, $status, $shortDesc, $beforeImage, $afterImage, $isFeatured, $sortOrder, $isPublished
+            ]);
 
-        Cache::clearAll();
-        ActivityLogModel::log('create_portfolio', 'portfolios', (int)$pId, null, ['title' => $title], Auth::id(), $request->getIpHash());
+            Cache::clearAll();
+            ActivityLogModel::log('create_portfolio', 'portfolios', (int)$pId, null, ['title' => $title], Auth::id(), $request->getIpHash());
 
-        Response::redirect('/admin/portfolios');
+            Response::redirect('/admin/portfolios');
+        } catch (\Throwable $e) {
+            $categories = PortfolioModel::getCategories();
+            $html = View::renderWithLayout('admin/portfolios/form', 'admin/layout', [
+                'title'      => 'Tambah Portofolio Proyek',
+                'portfolio'  => $_POST,
+                'categories' => $categories,
+                'error'      => 'Gagal menyimpan portofolio: ' . $e->getMessage()
+            ]);
+            Response::html($html);
+        }
     }
 
     public function edit(Request $request, string $id): void
@@ -111,10 +120,8 @@ class PortfolioController
         }
 
         $title = trim($request->post('title', ''));
-        $slug = trim($request->post('slug', ''));
-        if (empty($slug)) {
-            $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title)));
-        }
+        $rawSlug = trim($request->post('slug', ''));
+        $slug = $this->makeUniqueSlug($title, $rawSlug, $pId);
 
         $categoryId = (int)$request->post('category_id');
         $location = trim($request->post('location', 'Bogor'));
@@ -138,14 +145,25 @@ class PortfolioController
                 short_desc = ?, before_image = ?, after_image = ?, is_featured = ?, sort_order = ?, is_published = ?, updated_at = NOW()
                 WHERE id = ?";
 
-        DB::query($sql, [
-            $title, $slug, $categoryId, $serviceType, $location, $year, $status, $shortDesc, $beforeImage, $afterImage, $isFeatured, $sortOrder, $isPublished, $pId
-        ]);
+        try {
+            DB::query($sql, [
+                $title, $slug, $categoryId, $serviceType, $location, $year, $status, $shortDesc, $beforeImage, $afterImage, $isFeatured, $sortOrder, $isPublished, $pId
+            ]);
 
-        Cache::clearAll();
-        ActivityLogModel::log('update_portfolio', 'portfolios', $pId, $portfolio, ['title' => $title], Auth::id(), $request->getIpHash());
+            Cache::clearAll();
+            ActivityLogModel::log('update_portfolio', 'portfolios', $pId, $portfolio, ['title' => $title], Auth::id(), $request->getIpHash());
 
-        Response::redirect('/admin/portfolios');
+            Response::redirect('/admin/portfolios');
+        } catch (\Throwable $e) {
+            $categories = PortfolioModel::getCategories();
+            $html = View::renderWithLayout('admin/portfolios/form', 'admin/layout', [
+                'title'      => "Edit Portofolio: {$portfolio['title']}",
+                'portfolio'  => array_merge($portfolio, $_POST),
+                'categories' => $categories,
+                'error'      => 'Gagal memperbarui portofolio: ' . $e->getMessage()
+            ]);
+            Response::html($html);
+        }
     }
 
     public function delete(Request $request, string $id): void
@@ -160,6 +178,45 @@ class PortfolioController
         }
 
         Response::redirect('/admin/portfolios');
+    }
+
+    private function makeUniqueSlug(string $title, string $rawSlug, ?int $currentId = null): string
+    {
+        $slug = trim($rawSlug);
+        if (empty($slug)) {
+            $slug = $title;
+        }
+
+        $slug = strtolower($slug);
+        $slug = preg_replace('/[^a-z0-9]+/i', '-', $slug);
+        $slug = trim($slug, '-');
+
+        if (empty($slug)) {
+            $slug = 'proyek-' . time();
+        }
+
+        $baseSlug = $slug;
+        $counter = 1;
+
+        while (true) {
+            $sql = "SELECT id FROM portfolios WHERE slug = ? AND deleted_at IS NULL";
+            $params = [$slug];
+
+            if ($currentId !== null) {
+                $sql .= " AND id != ?";
+                $params[] = $currentId;
+            }
+
+            $existing = DB::fetchOne($sql, $params);
+            if (!$existing) {
+                break;
+            }
+
+            $slug = $baseSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return $slug;
     }
 
     private function uploadImage(string $fieldName, string $prefix): ?string
