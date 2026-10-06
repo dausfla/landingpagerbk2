@@ -79,11 +79,16 @@ class PortfolioController
             Response::redirect('/admin/portfolios');
         } catch (\Throwable $e) {
             $categories = PortfolioModel::getCategories();
+            $userMsg = 'Gagal menyimpan portofolio. Silakan periksa kembali data Anda.';
+            if (strpos($e->getMessage(), '1062') !== false || strpos($e->getMessage(), 'Duplicate entry') !== false) {
+                $userMsg = 'Judul atau Slug URL portofolio sudah digunakan. Silakan ubah judul atau slug proyek.';
+            }
+
             $html = View::renderWithLayout('admin/portfolios/form', 'admin/layout', [
                 'title'      => 'Tambah Portofolio Proyek',
                 'portfolio'  => $_POST,
                 'categories' => $categories,
-                'error'      => 'Gagal menyimpan portofolio: ' . $e->getMessage()
+                'error'      => $userMsg
             ]);
             Response::html($html);
         }
@@ -156,11 +161,16 @@ class PortfolioController
             Response::redirect('/admin/portfolios');
         } catch (\Throwable $e) {
             $categories = PortfolioModel::getCategories();
+            $userMsg = 'Gagal memperbarui portofolio. Silakan periksa kembali data Anda.';
+            if (strpos($e->getMessage(), '1062') !== false || strpos($e->getMessage(), 'Duplicate entry') !== false) {
+                $userMsg = 'Judul atau Slug URL portofolio sudah digunakan. Silakan ubah judul atau slug proyek.';
+            }
+
             $html = View::renderWithLayout('admin/portfolios/form', 'admin/layout', [
                 'title'      => "Edit Portofolio: {$portfolio['title']}",
                 'portfolio'  => array_merge($portfolio, $_POST),
                 'categories' => $categories,
-                'error'      => 'Gagal memperbarui portofolio: ' . $e->getMessage()
+                'error'      => $userMsg
             ]);
             Response::html($html);
         }
@@ -199,7 +209,8 @@ class PortfolioController
         $counter = 1;
 
         while (true) {
-            $sql = "SELECT id FROM portfolios WHERE slug = ? AND deleted_at IS NULL";
+            // Query table-wide (including soft-deleted rows) because MySQL UNIQUE index applies to whole table
+            $sql = "SELECT id, deleted_at FROM portfolios WHERE slug = ?";
             $params = [$slug];
 
             if ($currentId !== null) {
@@ -210,6 +221,12 @@ class PortfolioController
             $existing = DB::fetchOne($sql, $params);
             if (!$existing) {
                 break;
+            }
+
+            // If the matching slug is on a soft-deleted portfolio, rename the old soft-deleted row's slug to free up baseSlug
+            if (!empty($existing['deleted_at'])) {
+                DB::query("UPDATE portfolios SET slug = CONCAT(slug, '-deleted-', UNIX_TIMESTAMP()) WHERE id = ?", [$existing['id']]);
+                continue;
             }
 
             $slug = $baseSlug . '-' . $counter;
