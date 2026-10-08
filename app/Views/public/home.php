@@ -332,8 +332,8 @@
 
         <!-- Before/After Slider Featured Project: H House -->
         <div class="ba-container reveal" style="--pos: 50%;">
-          <img src="/assets/img/h-house.jpg" alt="Hasil Akhir H House Pasirmulya Bogor" class="ba-img ba-after" loading="lazy" width="960" height="600">
-          <img src="/assets/img/h-house-before.jpg" alt="Proses Konstruksi H House Pasirmulya Bogor" class="ba-img ba-before" loading="lazy" width="960" height="600">
+          <img src="/assets/img/h-house.jpg?v=2" alt="Hasil Akhir H House Pasirmulya Bogor" class="ba-img ba-after" loading="lazy" width="960" height="600">
+          <img src="/assets/img/h-house-before.jpg?v=2" alt="Proses Konstruksi H House Pasirmulya Bogor" class="ba-img ba-before" loading="lazy" width="960" height="600">
           <div class="ba-divider"></div>
           <div class="ba-handle">↔</div>
           <span class="ba-label ba-label-before">Sebelum (Proses)</span>
@@ -359,6 +359,7 @@
                 <?php
                   $afterSrc = !empty($p['after_image']) ? e($p['after_image']) : (file_exists(__DIR__ . '/../../../public/assets/img/' . $p['slug'] . '.jpg') ? '/assets/img/' . e($p['slug']) . '.jpg' : '/assets/img/' . e($p['slug']) . '.webp');
                   $beforeSrc = !empty($p['before_image']) ? e($p['before_image']) : (file_exists(__DIR__ . '/../../../public/assets/img/' . $p['slug'] . '-before.jpg') ? '/assets/img/' . e($p['slug']) . '-before.jpg' : '/assets/img/' . e($p['slug']) . '-before.webp');
+                  if (strpos($beforeSrc, '?') === false) { $beforeSrc .= '?v=2'; }
                 ?>
                 <img src="<?= $afterSrc ?>" alt="Sesudah <?= e($p['title']) ?>" class="ba-img ba-after" loading="lazy" width="400" height="250">
                 <img src="<?= $beforeSrc ?>" alt="Sebelum <?= e($p['title']) ?>" class="ba-img ba-before" loading="lazy" width="400" height="250">
